@@ -1,0 +1,147 @@
+html, body {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  scrollbar-width: none;
+}
+
+canvas {
+  display: block;
+}
+
+/* Window dressing */
+.content {
+  height:calc(100% - 42px);
+  background-color: black;
+}
+
+.window {
+  height: calc(100vh - 8px);
+}
+
+.title-bar {
+  font-family: "Pixelated MS Sans Serif", Arial;
+  -webkit-font-smoothing: none;
+  font-size: 11px;
+}
+
+/* Webstalker formtting */
+.webstalker {
+  margin: auto;
+  max-width: 960px;
+  display: flex; 
+  flex-direction: row; 
+  height: 100%;
+}
+
+.webstalker-left {
+  width:60%; 
+  height: 95%;
+  color:white;
+
+  display: flex; 
+  flex-direction: column; 
+}
+
+.webstalker-right {
+  width: 40%; 
+  height: 85%;
+  color: white;
+
+  display: flex;
+  flex-direction: column; 
+}
+
+.webstalker-left-element {
+  margin: 1rem 1rem 0rem 1rem;
+  border: solid;
+  border-width: 1px;
+  flex-grow: 2;
+  border-color: white;
+}
+
+.webstalker-right-element {
+  margin: 1rem 1rem 0rem 0rem;
+  border: solid;
+  border-width: 1px;
+  border-color: white;
+  flex-grow: 2;
+}
+
+.webstalker-HTML-stream {
+  flex-grow: 8;
+}
+
+.webstalker-info {
+  flex-grow: 5;
+}
+
+.webstalker-map {
+  flex-grow: 5;
+}
+
+.webstalker-stash {
+  flex-grow: 1;
+}
+
+/* Within webstalker stuff */
+.plus {
+  --t:2px;   /* Thickness */
+  --l:10px;  /* size of the symbol */
+  --s:5px;  /* space around the symbol */
+  --c1:#fff; /* Plus color*/
+  --c2:#000; /* background color*/
+
+  display:inline-block;
+  width:var(--l);
+  height:var(--l);
+  padding:var(--s);
+  box-sizing:border-box; /*Remove this if you don't want space to be included in the size*/
+  
+  border-color: white;
+  border-style: solid;
+  border-width: 1px;
+
+  margin: 4px 0px 0px 4px;
+
+  background:
+    linear-gradient(var(--c1) 0 0) content-box,
+    linear-gradient(var(--c1) 0 0) content-box,
+    var(--c2);
+  background-position:center;
+  background-size: 100% var(--t),var(--t) 100%;
+  background-repeat:no-repeat;
+
+  position:relative;
+}
+
+.webstalker-footer {
+  float: right;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+  padding: 5px 0px 0px 5px;
+  width: 30%;
+  background-color: black;
+
+  position: relative; top:calc(100% - 20px);
+}
+
+.webstalker-text {
+  /* background-color: red; */
+  width: 85%;
+  height: calc(100% - 28px);
+  margin: auto;
+  padding: 0;
+}
+
+.webstalker-text * {
+  margin: 0;
+  padding: 0;
+}
+
+.webstalker-text p {
+  font-size: 0.8rem;
+  
+}
+
+
