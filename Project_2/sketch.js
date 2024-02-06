@@ -56,7 +56,6 @@ function me(xOffset=0, yOffset=0, shirtcolor = 'green') {
   drawShape(earrings, 'black', xOffset, yOffset)
 }
 
-
 function drawShape(point_cloud, color, xOffset=0, yOffset=0) {
   stroke('black')
   fill(color)
