@@ -27,11 +27,12 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   cube.x.pos = width/2 + random(-100, 100);
   cube.y.pos = height/2 + random(-100, 100);
+
 }
 
 function draw() {
-  balling();
-  // solar_system()
+  // balling();
+  solar_system()
   
 }
 
@@ -99,30 +100,28 @@ function solar_system() {
     angleMode(DEGREES);
     rectMode(CENTER);
   
+
+    fill('yellow')
+    ellipse(0, 0, 100)
     rotate(ellipseRot);
     
-    push();
-    fill('yellow')
-    ellipse(0, 0, 200)
+    planet(-100, 100, 'white')
+    
     
   
-    translate(0, -300);
-    fill('blue')
-    ellipse(0, 0, 100);
-    line(0, 0, 0, 300)
-  
-      push();
-      rotate(ellipseRot)
-      translate(0, -100);
-      line(0, 0, 0, 100)
-  
-      fill('white')
-      ellipse(0, 0, 50, 50);
-      
-      pop();
-    pop();
-  
     ellipseRot = ellipseRot + 1;
+}
+
+function planet(distance, size, color) {
+  translate(0, -distance)
+  fill(color)
+  ellipse(0, 0, size);
+  line(0, 0, 0, distance)
+  rotate(ellipseRot)
+
+  if (abs(distance) > 10) {
+    planet(distance/1.1, size/1.1, 'white')
+  }
 }
 
 function keyPressed() {
