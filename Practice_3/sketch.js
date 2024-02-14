@@ -1,12 +1,16 @@
-let ball = {
+let cube = {
+  rot: {
+    angle: 0,
+    speed: 5,
+  },
   radius: 50,
   x: {
     pos: 0,
-    vel: 5,
+    vel: 50,
   },
   y: {
     pos: 0,
-    vel: 5,
+    vel: 50,
   }
 }
 
@@ -21,15 +25,9 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  ball.x.pos = width/2 + random(-100, 100);
-  ball.y.pos = height/2 + random(-100, 100);
+  cube.x.pos = width/2 + random(-100, 100);
+  cube.y.pos = height/2 + random(-100, 100);
 
-  const options = {
-    units: "frames",
-    delay: 0,
-  }
-
-  saveGif("thing.gif", frames, options)
 }
 
 function draw() {
@@ -39,25 +37,58 @@ function draw() {
 }
 
 function balling(){
-  background(220)
+  angleMode(DEGREES)
+  rectMode(CENTER)
+  // background(220)
 
   fill('red')
-  ellipse(ball.x.pos, ball.y.pos, ball.radius * 2)
 
-  if(ball.x.pos + ball.radius > width || ball.x.pos - ball.radius < 0) {
-    ball.x.vel *= -1;
+
+  if(cube.x.pos + cube.radius > width || cube.x.pos - cube.radius < 0) {
+    cube.x.vel *= -1;
+    cube.rot.speed *= -1;
     mySound.play();
   }
 
-  if(ball.y.pos + ball.radius > height || ball.y.pos - ball.radius < 0) {
-    ball.y.vel *= -1;
+  if(cube.y.pos + cube.radius > height || cube.y.pos - cube.radius < 0) {
+    cube.y.vel *= -1;
+    cube.rot.speed *= -1;
     mySound.play();
   }
 
-  ellipse(ball.x, ball.y, 100, 100)
+  if(cube.y.pos < height/3 * 3) {
+    fill('red')
+  }
 
-  ball.x.pos += ball.x.vel;
-  ball.y.pos += ball.y.vel;
+  if(cube.y.pos < height/3 * 2) {
+    fill('blue')
+  }
+
+  if(cube.y.pos < height/3 * 1) {
+    fill('yellow')
+  }
+
+  if(cube.y.pos < height/3 * 3 && cube.x.pos < width/2) {
+    fill('green')
+  }
+
+  if(cube.y.pos < height/3 * 2 && cube.x.pos < width/2) {
+    fill('orange')
+  }
+
+  if(cube.y.pos < height/3 * 1 && cube.x.pos < width/2) {
+    fill('purple')
+  }
+
+  push();
+  translate(cube.x.pos, cube.y.pos)
+  rotate(cube.rot.angle)
+  rect(0, 0, cube.radius * 2)
+  cube.rot.angle += cube.rot.speed;
+  pop();
+
+  cube.x.pos += cube.x.vel;
+  cube.y.pos += cube.y.vel;
 }
 
 function solar_system() {
