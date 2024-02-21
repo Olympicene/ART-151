@@ -6,13 +6,29 @@
 
     <title>Sketch</title>
 
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <script src="libraries/p5.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script>
+
   </head>
 
   <body>
-    <script src="sketch.js"></script>
+    <div class="window">
+      <div class="title-bar">
+        <div class="title-bar-text">Webstalker.exe</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div id="content" class="window-body content">
+        <script id="canvas" src="sketch.js"></script>
+      </div>
+    </div>
+
+    
   </body>
 </html>
