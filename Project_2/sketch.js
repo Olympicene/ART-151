@@ -95,7 +95,7 @@ let frameDelay = 30;
 let circleRadius = 50;
 
 let scene_1 = 170;
-let scene_2 = 2050
+let scene_2 = 2000
 
 function draw() {
   background(0, 128, 128, 50)
@@ -145,8 +145,30 @@ function draw() {
       planet_2.reverse()
     }
 
-    if (frames > 2100) {
+    if (frames == 800) {
+      planet_1.reverse_orbit()
+      planet_2.reverse_orbit()
+    }
+
+    if (frames == 1100) {
+      planet_1.reverse()
+      planet_2.reverse()
+    }
+
+    if (frames == 1400) {
+      planet_1.reverse_orbit()
+      planet_2.reverse_orbit()
+    }
+
+    if (frames == 1700) {
+      planet_1.reverse()
+      planet_2.reverse()
+    }
+
+    if (frames > scene_2) {
       frames = 0;
+      planet_1 = new Planet(width/2, height/2, 1, 0, 150)
+      planet_2 = new Planet(width/2, height/2, -1, 0, 150)
     }
 
 
