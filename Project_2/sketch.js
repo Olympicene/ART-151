@@ -37,7 +37,7 @@ class Planet {
   vel = {}
 
   constructor(x, y, vx, vy, radius) {
-    this.pos.x = x
+    this.pos.x = xFib
     this.pos.y = y
     this.vel.x = vx
     this.vel.y = vy
@@ -176,14 +176,14 @@ function draw() {
   }
 }
 
+// random circles
 function scene_1_circles() {
   let x = random(width - circleRadius );
   let y = random(height - circleRadius );
   ellipse(x, y, random(circleRadius *  2));
 }
 
-
-
+// click to start
 function togglePlay() {
   if (song.isPlaying()) {
     isAnimating = false;
